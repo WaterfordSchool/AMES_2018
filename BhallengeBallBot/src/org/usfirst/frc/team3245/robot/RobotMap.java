@@ -15,22 +15,12 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-package org.usfirst.frc3245.CompCode3245;
+package org.usfirst.frc.team3245.robot;
 
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-
-
-package org.usfirst.frc3245.CompCode3245;
-
-
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 //import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import com.ctre.phoenix.*;
-import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
-import com.ctre.phoenix.motorcontrol.IFollower;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -56,22 +46,24 @@ public class RobotMap  {
 
         //Drive Train
         driveTrainLeftFrontMotor = new Talon(0);
+        driveTrainLeftFrontMotor.setSafetyEnabled(false);
         //LiveWindow.addActuator("DriveTrain", "Left Front Motor", (WPI_TalonSRX) driveTrainLeftFrontMotor);
         //driveTrainLeftFrontMotor.setInverted(false);
-        driveTrainLeftRearMotor = new Talon(1);
+        //driveTrainLeftRearMotor = new Talon(1);
         //LiveWindow.addActuator("DriveTrain", "Left Rear Motor", (WPI_TalonSRX) driveTrainLeftRearMotor);
         //driveTrainLeftRearMotor.follow(driveTrainLeftFrontMotor);
-        SpeedControllerGroup m_left = new SpeedControllerGroup(driveTrainLeftFrontMotor, driveTrainLeftRearMotor);
+        //SpeedControllerGroup m_left = new SpeedControllerGroup(driveTrainLeftFrontMotor, driveTrainLeftRearMotor);
+        //m_left.setInverted(false);
         
-        driveTrainRightFrontMotor = new Talon(2);
-        driveTrainRightRearMotor = new Talon(3);
-        SpeedControllerGroup m_right = new SpeedControllerGroup(driveTrainRightFrontMotor, driveTrainRightRearMotor);
+        driveTrainRightFrontMotor = new Talon(3);
+        driveTrainLeftFrontMotor.setSafetyEnabled(false);
+        //driveTrainRightRearMotor = new Talon(4);
+        //SpeedControllerGroup m_right = new SpeedControllerGroup(driveTrainRightFrontMotor, driveTrainRightRearMotor);
+        //m_right.setInverted(true);
         
-        driveTrainTDrive = new DifferentialDrive(m_left, m_right);
-        driveTrainRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
-        driveTrainRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+        driveTrainTDrive = new DifferentialDrive(driveTrainLeftFrontMotor, driveTrainRightFrontMotor);
         
-        //Gyro
+        //
   /**      driveTrainGyro1 = new ADXRS450_Gyro();
         LiveWindow.addSensor("DriveTrain", "Gyro 1", driveTrainGyro1);
         //driveTrainGyro1.setSensitivity(0.007);
