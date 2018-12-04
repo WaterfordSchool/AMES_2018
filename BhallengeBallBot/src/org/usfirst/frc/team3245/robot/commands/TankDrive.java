@@ -6,9 +6,12 @@ import org.usfirst.frc.team3245.robot.Robot;
  *
  */
 public class TankDrive extends Command {
+	
+	double speed;
 
-    public TankDrive() {
+    public TankDrive(double kSpeed) {
         requires(Robot.driveTrain);
+        speed = kSpeed;
     }
 
     // Called just before this Command runs the first time
@@ -17,7 +20,7 @@ public class TankDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.drive(Robot.oi.getDriver());
+    	Robot.driveTrain.drive(Robot.oi.getDriver(), speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

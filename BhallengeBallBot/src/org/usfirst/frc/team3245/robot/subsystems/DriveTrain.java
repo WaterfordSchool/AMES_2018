@@ -31,16 +31,18 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	
-    	setDefaultCommand(new TankDrive());
+    	setDefaultCommand(new TankDrive(0.7));
     }
     
     public void drive(double left, double right) {
     	tDrive.tankDrive(right, left);
     }
     
-    public void drive(Joystick joy) {
-    	drive(joy.getY(), joy.getRawAxis(3));
+    public void drive(Joystick joy, double kSpeed) {
+    	drive(kSpeed*joy.getY(), kSpeed*joy.getRawAxis(3));
     	SmartDashboard.putNumber("Right Motor Speed", rightFrontMotor.get());
+    	SmartDashboard.putNumber("Left Moter Speed", leftFrontMotor.get());
     }
+    
 }
 
