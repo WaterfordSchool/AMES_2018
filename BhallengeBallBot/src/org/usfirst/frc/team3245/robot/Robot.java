@@ -25,16 +25,16 @@ import org.usfirst.frc.team3245.robot.subsystems.*;
  */
 public class Robot extends TimedRobot {
 	
-	public static OI oi
-		= new OI();
-	public static DriveTrain driveTrain
-		= new DriveTrain();
-	public static dumpOne dumpOne
-		= new dumpOne();
-	public static dumpTwo dumptwo
-		= new dumpTwo();
-	public static Shooter shooter
-		= new Shooter();
+	public static OI oi;
+		//= new OI();
+	public static DriveTrain driveTrain;
+		//= new DriveTrain();
+	public static DumpOne dumpOne;
+		//= new DumpOne();
+	public static DumpTwo dumpTwo;
+		//= new DumpTwo();
+	public static Shooter shooter;
+		//= new Shooter();
 
 	Command autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -47,9 +47,15 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		RobotMap.init();
 		
+		driveTrain = new DriveTrain();
+		dumpOne = new DumpOne();
+		dumpTwo = new DumpTwo();
+		shooter = new Shooter();
+		
 		//m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
+		System.out.println("robotInit completed");
 	}
 
 	/**
@@ -59,6 +65,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void disabledInit() {
+		System.out.println("Robit disabled");
 
 	}
 
@@ -100,7 +107,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		//Scheduler.getInstance().run();
+		Scheduler.getInstance().run();
 	}
 
 	@Override

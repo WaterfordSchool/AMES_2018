@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class dumpOne extends Subsystem {
+public class DumpOne extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Joystick.AxisType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -40,8 +39,9 @@ public class DriveTrain extends Subsystem {
     
     public void drive(Joystick joy, double kSpeed) {
     	drive(kSpeed*joy.getY(), kSpeed*joy.getRawAxis(3));
-    	SmartDashboard.putNumber("Right Motor Speed", rightFrontMotor.get());
-    	SmartDashboard.putNumber("Left Moter Speed", leftFrontMotor.get());
+    
+    	//SmartDashboard.putNumber("Right Motor Speed", rightFrontMotor.get());
+    	//SmartDashboard.putNumber("Left Moter Speed", leftFrontMotor.get());
     }
     
 }
