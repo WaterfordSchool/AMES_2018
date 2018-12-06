@@ -48,7 +48,7 @@ public class RobotMap  {
         driveTrainLeftFrontMotor = new Talon(0);
         driveTrainLeftFrontMotor.setSafetyEnabled(false);
         //LiveWindow.addActuator("DriveTrain", "Left Front Motor", (WPI_TalonSRX) driveTrainLeftFrontMotor);
-        //driveTrainLeftFrontMotor.setInverted(false);
+        driveTrainLeftFrontMotor.setInverted(false);
         //driveTrainLeftRearMotor = new Talon(1);
         //LiveWindow.addActuator("DriveTrain", "Left Rear Motor", (WPI_TalonSRX) driveTrainLeftRearMotor);
         //driveTrainLeftRearMotor.follow(driveTrainLeftFrontMotor);
@@ -57,6 +57,7 @@ public class RobotMap  {
         
         driveTrainRightFrontMotor = new Talon(3);
         driveTrainRightFrontMotor.setSafetyEnabled(false);
+        driveTrainRightFrontMotor.setInverted(false);
         //driveTrainRightRearMotor = new Talon(4);
         //SpeedControllerGroup m_right = new SpeedControllerGroup(driveTrainRightFrontMotor, driveTrainRightRearMotor);
         //m_right.setInverted(true);

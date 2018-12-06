@@ -47,6 +47,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		RobotMap.init();
 		
+		oi = new OI();
 		driveTrain = new DriveTrain();
 		dumpOne = new DumpOne();
 		dumpTwo = new DumpTwo();
