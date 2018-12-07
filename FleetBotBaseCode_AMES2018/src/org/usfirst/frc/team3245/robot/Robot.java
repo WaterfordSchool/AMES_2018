@@ -24,6 +24,8 @@ import edu.wpi.first.wpilibj.Timer;
 
 public class Robot extends IterativeRobot {
 	
+	private double autoStartTime;
+	
 	Accelerometer accel = new BuiltInAccelerometer();
 	double xVal,maxX,yVal,maxY,zVal,maxZ;
 	
@@ -77,8 +79,8 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void autonomousInit() { 
-
-		driveStraight(5);
+		autoStartTime = Timer.getFPGATimestamp();
+		//driveStraight(5);
 	
 	}
 	@Override
