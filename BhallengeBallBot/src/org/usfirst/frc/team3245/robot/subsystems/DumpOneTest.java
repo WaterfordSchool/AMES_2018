@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class DumpOne extends Subsystem {
-private final Talon dumpOneLocal = RobotMap.dumpOneMotor;
+public class DumpOneTest extends Subsystem {
+	private final Talon dumpOne = RobotMap.dumpOneMotor;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -18,12 +18,10 @@ private final Talon dumpOneLocal = RobotMap.dumpOneMotor;
         //setDefaultCommand(new MySpecialCommand());
     }
  public void armDump() {
-	 dumpOneLocal.set(0.1);
+	 dumpOne.set(0.1);
  }
  
  public void stop () {
-	 dumpOneLocal.set(0);
+	 dumpOne.set(0);
  }
-
 }
-

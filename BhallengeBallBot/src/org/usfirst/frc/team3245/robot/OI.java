@@ -46,7 +46,6 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	
 	public Joystick driver;
-
 	public Joystick operator;
 	public JoystickButton opRightTrigger, opLeftTrigger;
 	public JoystickButton opRightBumper, opLeftBumper;

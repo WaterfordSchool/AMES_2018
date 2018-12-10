@@ -3,19 +3,22 @@ package org.usfirst.frc.team3245.robot.commands;
 import org.usfirst.frc.team3245.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc.team3245.robot.subsystems.*;
+//import org.usfirst.frc.team3245.robot.subsystems.*;
 /**
  *
  */
 public class dumpOneCommand extends Command {
 	//double speed;
     public dumpOneCommand() {
-    	requires(Robot.dumpOne);
+    	requires(Robot.dumpOneNew);
     }
 
     protected void execute() {
-    	setTimeout(0.9);
-      	Robot.dumpOne.armDump();
+    	
+    	Robot.dumpOneNew.activate(Robot.oi.getOperator());
+    	
+    	//setTimeout(0.3);
+      	//Robot.dumpOneNew.armDump();
     	
     }
 
@@ -29,7 +32,7 @@ public class dumpOneCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.dumpOne.stop();
+    	Robot.dumpOneNew.stop();
     	
     }
 

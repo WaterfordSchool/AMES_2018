@@ -29,8 +29,7 @@ public class Robot extends TimedRobot {
 		//= new OI();
 	public static DriveTrain driveTrain;
 		//= new DriveTrain();
-	public static DumpOne dumpOne;
-		//= new DumpOne();
+	public static JoystickDump1 dumpOneNew; //= new JoystickDump1();
 	public static DumpTwo dumpTwo;
 		//= new DumpTwo();
 	public static Shooter shooter;
@@ -49,7 +48,7 @@ public class Robot extends TimedRobot {
 		
 		oi = new OI();
 		driveTrain = new DriveTrain();
-		dumpOne = new DumpOne();
+		dumpOneNew = new JoystickDump1();
 		dumpTwo = new DumpTwo();
 		shooter = new Shooter();
 		
