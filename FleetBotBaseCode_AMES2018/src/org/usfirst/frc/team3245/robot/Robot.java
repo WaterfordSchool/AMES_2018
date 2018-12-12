@@ -11,9 +11,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Joystick.AxisType;
 import edu.wpi.first.wpilibj.PWMSpeedController;
-
 import java.sql.Time;
-
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -89,34 +87,52 @@ public class Robot extends IterativeRobot {
 		//driveStraight(5);
 	
 	}
+	/*
+	 * drive past auto line, drops off a cube, goes along the track as far as possible. all in auto
+	 */
 	@Override
 	public void autonomousPeriodic() {
 
 		double currTime = Timer.getFPGATimestamp();
 
-		
 		double timeElapsed = currTime - autoStartTime;
 		
-		//drive straight half speed for 4 seconds
-		if (timeElapsed < 4) {
-			tDrive.tankDrive(0.5, 0.5);
-			
+		//drive straight
+		if (timeElapsed < 2.5) {
+			tDrive.tankDrive(-1, 1);
+			if (timeElapsed>2&&timeElapsed<4) {
+				cam6.set(0.5);
+			}
 		}
 		
-		//Cam start
-		else if (timeElapsed < 6) {
-			cam6.set(1);
+		//turn left
+		else if (timeElapsed < 4) {
+			tDrive.tankDrive(-0.3, 0.5);
 		}
 		
-		
-		//Back Up
+		//go straight
 		else if (timeElapsed < 8) {
-			tDrive.tankDrive(-0.5, -0.5);
+			tDrive.tankDrive(-1, 1);
 		}
 		
-		//Turn Right at half speed for 1.5 seconds [recaculate time]
-		else if (timeElapsed < 9.5) {
-			tDrive.tankDrive(-0.5, 0.5);
+		//stop
+		else if (timeElapsed < 8.5) {
+			tDrive.tankDrive(0, 0);
+		}
+		
+		//turn left
+		else if (timeElapsed < 10) {
+			tDrive.tankDrive(-0.8, 1.0);
+		}
+		
+		//go forward
+		else if (timeElapsed < 14) {
+			tDrive.tankDrive(-1, 1);
+		}
+		
+		//turn left
+		else if (timeElapsed < 15) {
+			tDrive.tankDrive(1, 1);
 		}
 		
 	}																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										
