@@ -51,6 +51,12 @@ public class Robot extends IterativeRobot {
 	
 	
 	double leftdrive = 3, rightdrive = 3;
+	
+	/*public void reset() {
+		autoStartTime
+	}
+	*/
+	
 	@Override
 	public void robotInit() {
 		
@@ -85,54 +91,44 @@ public class Robot extends IterativeRobot {
 	}
 	@Override
 	public void autonomousPeriodic() {
-		
-		
-				
-		//For loop to see if the driveStraight could be broken out of (has not been compiled yet)
-		//most likely will not work cuz basic math, i = 1 (motors run for one second), i = 2 (runs for 2 seconds, 3 in total), i = 3 (runs for 3 seconds, 6 in total)
-		
-		//Drive Forward
-		/*while (Timer.getFPGATimestamp()<5) {
-			driveStraight(5);
-		}
-		while (5<Timer.getFPGATimestamp()&&Timer.getFPGATimestamp()<10) {
-			turn(5);
-		}
-		while (10<Timer.getFPGATimestamp()&&Timer.getFPGATimestamp()<15){
-			driveStraight(5):
-		}
-		*/
-		//driveStraight(2.0);
-		
-		//stop();
-		
-		//turn(2);
-		
-		//run 3 seconds
-		
-		//stop();		
-		
-		//Mr. Oromorus:
-		/*try {
-			leftdrive0.set(1);
-			rightdrive3.set(1);
-			Thread.sleep(1000);
-			leftdrive0.set(0);
-			rightdrive3.set(0);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		*/
-		}
 
+		double currTime = Timer.getFPGATimestamp();
 
+		
+		double timeElapsed = currTime - autoStartTime;
+		
+		//drive straight half speed for 4 seconds
+		if (timeElapsed < 4) {
+			tDrive.tankDrive(0.5, 0.5);
+			
+		}
+		
+		//Cam start
+		else if (timeElapsed < 6) {
+			cam6.set(1);
+		}
+		
+		
+		//Back Up
+		else if (timeElapsed < 8) {
+			tDrive.tankDrive(-0.5, -0.5);
+		}
+		
+		//Turn Right at half speed for 1.5 seconds [recaculate time]
+		else if (timeElapsed < 9.5) {
+			tDrive.tankDrive(-0.5, 0.5);
+		}
+		
+	}																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										
+	
 	private void turn(double time) {
 		leftdrive0.set(leftdrive);
 		rightdrive3.set(rightdrive);
 			
 		Timer.delay(2);
 			
-	}		
+	}
+	
 	
 	private void stop() {
 			
@@ -141,6 +137,10 @@ public class Robot extends IterativeRobot {
 		rightdrive3.set(0);
 					
 	}				
+	
+	
+	
+
 				
 	//private void driveStraight(double time) {
 	//double tF=Timer.getFPGATimestamp();
