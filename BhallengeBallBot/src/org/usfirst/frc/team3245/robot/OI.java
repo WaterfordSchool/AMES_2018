@@ -58,9 +58,11 @@ public class OI {
 		//Operator Controls
 		opRightTrigger = new JoystickButton (operator, 8);
 		opRightTrigger.whileHeld(new dumpOneCommand());
+		
 		opLeftTrigger = new JoystickButton (operator, 7);
 		
 		opRightBumper = new JoystickButton (operator, 5);
+		
 		opLeftBumper = new JoystickButton (operator, 6);
 	}
 	
