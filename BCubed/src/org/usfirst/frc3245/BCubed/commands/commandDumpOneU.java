@@ -16,10 +16,10 @@ import org.usfirst.frc3245.BCubed.Robot;
 /**
  *
  */
-public class commandDumpOne extends Command {
+public class commandDumpOneU extends Command {
 
-    public commandDumpOne() {
-    	
+    public commandDumpOneU() {
+
         requires(Robot.dumpOne);
 
     }
@@ -31,8 +31,7 @@ public class commandDumpOne extends Command {
     @Override
     protected void execute() {
     	setTimeout(0.5);
-    	Robot.dumpOne.armDump();
-  
+    	Robot.dumpOne.retract();
     }
 
     @Override
