@@ -24,14 +24,14 @@ public class Robot extends IterativeRobot {
 	Servo servoThing = new Servo(7);
 	DifferentialDrive tDrive = new DifferentialDrive(leftdrive0, rightdrive3);
 	Joystick driverController = new Joystick (0);
-	JoystickButton rightTrigger  = new JoystickButton(driverController, 7);
-	JoystickButton leftTrigger = new JoystickButton(driverController, 6);
+	JoystickButton rightTrigger  = new JoystickButton(driverController, 8);
+	JoystickButton leftTrigger = new JoystickButton(driverController, 7);
 
 	private double autoStartTime;
 	
 	@Override
 	public void robotInit() {
-		servoThing.set(0);
+		//servoThing.set(0);
 
 	}
 
@@ -81,31 +81,32 @@ public class Robot extends IterativeRobot {
 		double motorSpeed = 1.0;
 		tDrive.tankDrive(-driverController.getY()*motorSpeed, -driverController.getAxis(AxisType.kThrottle)*motorSpeed);
 	
-		if (driverController.getRawButtonPressed(7)) {
+		if (driverController.getRawButton(8) == true) {
 			cam6.set(1.0);
 			}
-		else if(driverController.getRawButtonPressed(6)){
+		else if(driverController.getRawButton(7) == true){
 			cam6.set(-1.0);
 			}
 		
 		else if (driverController.getRawButtonPressed(3)) {
-			servoThing.setSpeed(0.5); //might need to do angles
+			servoThing.set(0.0); //might need to do angles
 		}
 		
+		
 		else if (driverController.getRawButtonPressed(2)) {
-			servoThing.setSpeed(-0.5); //might need to do angles
-		}
+			servoThing.set(1.0); //might need to do angles
+		}								
 		
 		else {
 			cam6.set(0);
 			}
-		
 		
 	}
 
 	@Override
 	public void testPeriodic() {
 	}
+	
 }
 
 //Check if motor speed is appropriate for driver
