@@ -24,6 +24,7 @@ public class Robot extends IterativeRobot {
 	
 	private double autoStartTime;
 	
+	
 	Accelerometer accel = new BuiltInAccelerometer();
 	double xVal,maxX,yVal,maxY,zVal,maxZ;
 	
@@ -164,7 +165,6 @@ public class Robot extends IterativeRobot {
 	//double t=Timer.getFPGATimestamp();
 	//while (t<tF)	
 	// 	t=Timer.getFPGATimestamp();
-	//H O L Y B A L L S T H I S I S M A K I N G M E W A N N A C O M M I T S O D O K U
 		//leftdrive0.set(leftdrive/2);
 			
 		//rightdrive3.set(-rightdrive/2);
